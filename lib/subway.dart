@@ -78,8 +78,8 @@ class _SubwayState extends State<Subway> {
     var currentTime = DateTime.now();
     print('currentTime:' + currentTime.toString());
 
-    currentTime = DateTime.parse(currentTime.toString() + '-09:00');
-    print('currentLocalTime:' + currentTime.toString());
+    // currentTime = DateTime.parse(currentTime.toString() + '-09:00');
+    // print('currentLocalTime:' + currentTime.toString());
 
     var diff = currentTime.difference(formattedReceivedTime).inSeconds;
     print("diff:" + diff.toString());
