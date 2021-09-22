@@ -37,7 +37,6 @@ class _SubwayState extends State<Subway> {
   }
 
   Future<List<dynamic>> fetchStationInfo() async {
-    print('in fetchStationInfo()');
 
     Map<String, dynamic> result = new Map<String, dynamic>();
 
@@ -45,7 +44,6 @@ class _SubwayState extends State<Subway> {
     http.Response res = await http.get(Uri.parse(apiUrl), headers: headers);
 
     if(res.statusCode == 200) {
-      print('200 code');
       final transformer = Xml2Json();
       transformer.parse(utf8.decode(res.bodyBytes));
       String jsonString = transformer.toParker();
@@ -70,19 +68,12 @@ class _SubwayState extends State<Subway> {
     String result;
 
     var receivedTime = info['recptnDt'];
-    print('receipvedTime:' + receivedTime);
 
     var formattedReceivedTime = DateTime.parse(receivedTime);
-    print('formattedReceivedTime:' + formattedReceivedTime.toString());
 
     var currentTime = DateTime.now();
-    print('currentTime:' + currentTime.toString());
-
-    // currentTime = DateTime.parse(currentTime.toString() + '-09:00');
-    // print('currentLocalTime:' + currentTime.toString());
 
     var diff = currentTime.difference(formattedReceivedTime).inSeconds;
-    print("diff:" + diff.toString());
 
     if(diff < 60) {
       result = '업데이트: ' + diff.toString() + '초 전';
