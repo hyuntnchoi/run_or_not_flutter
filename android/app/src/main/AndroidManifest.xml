@@ -3,9 +3,11 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
 
     <application
-        android:label="run_or_not"
+        android:label="뛸까말까"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
